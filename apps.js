@@ -1,7 +1,10 @@
 // Sample data for the bar chart
-const data = [10, 25, 15, 30, 45, 20, 35];
+let data = [10, 25, 15, 30, 45, 20, 35];
 
-// Dimensions and margins
+// Sort data in descending order
+data.sort((a, b) => b - a); 
+
+// Dimension og margins
 const margin = { top: 20, right: 30, bottom: 40, left: 40 };
 const width = 500 - margin.left - margin.right;
 const height = 300 - margin.top - margin.bottom;
@@ -16,7 +19,7 @@ const svg = d3.select("#chart")
 
 // Create scales
 const x = d3.scaleBand()
-    .domain(data.map((d, i) => i)) // Map each data item to an index
+    .domain(data.map((d, i) => i)) 
     .range([0, width])
     .padding(0.2);
 
